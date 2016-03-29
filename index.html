@@ -14,29 +14,31 @@
   <script src="js/app.js"></script>
   <script src="js/data.js"></script>
   <script src="js/heroes/heroes.js"></script>
-  <script src="js/heroes/index.controller.js"></script>
+  <!-- <script src="js/heroes/index.controller.js"></script>
   <script src="js/heroes/show.controller.js"></script>
   <script src="js/heroes/new.controller.js"></script>
-  <script src="js/heroes/edit.controller.js"></script>
+  <script src="js/heroes/edit.controller.js"></script> -->
 </head>
-<body ng-app="phonebook">
-  <h1>Superheroes</h1>
-  <div class="picture">
-    Picture:
-  </div>
-  <div class="search">
-    Search:
-  </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name:</th>
-        <th>Number:</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+<body data-ng-app="phonebook">
+  <main data-ng-controller="hero_controller as vm">
+    <h1>Superheroes</h1>
+    <div class="picture">
+      Picture:
+    </div>
+    <div class="search">
+      Search:
+    </div>
+    <table class="table">
+      <thead>
+        <tr data-ng-repeat="hero in vm.data">
+          <th>Name: {{hero.name}}</th>
+          <th>Number: {{hero.number}}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </main>
 </body>
 </html>
