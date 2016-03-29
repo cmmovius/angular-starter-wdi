@@ -34,7 +34,7 @@
         <tr data-ng-repeat="hero in vm.data | filter: vm.filter_on" class="{{hero.group | lowercase}}">
           <th>Name: {{hero.name}}</th>
           <th>Number: {{hero.number}}</th>
-          <th></th>
+          <th data-ng-click="vm.image()"><button>View Image</button></th>
         </tr>
       </thead>
       <tbody>

@@ -10,6 +10,10 @@
   function HeroController(){
     var vm = this;
     vm.data = superheroList;
+    vm.image = function() {
+      console.log("Clicked");
+      $("picture").append("<div>Clicked</div>");
+    }
   }
   // .config([
   //   "$stateProvider",
