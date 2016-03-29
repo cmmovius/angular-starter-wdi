@@ -22,16 +22,16 @@
 <body data-ng-app="phonebook">
   <main data-ng-controller="hero_controller as vm">
     <h1>Superheroes</h1>
-    <input type="text" class="form-control" placeholder="Search for Hero" data-ng-model="vm.filter_on"/>
+
     <div class="picture">
       Picture:
     </div>
     <div class="search">
-      Search:
+      Search: <input type="text" class="form-control" placeholder="Search for Hero" data-ng-model="vm.filter_on"/>
     </div>
     <table class="table">
       <thead>
-        <tr data-ng-repeat="hero in vm.data | filter: vm.filter_on">
+        <tr data-ng-repeat="hero in vm.data | filter: vm.filter_on" class="{{hero.group | lowercase}}">
           <th>Name: {{hero.name}}</th>
           <th>Number: {{hero.number}}</th>
           <th></th>
