@@ -1,56 +1,41 @@
-var superheroList = [
-  {
-    name: "Spiderman",
-    number: "800-WEB-CRWL",
-    group: "Marvel",
-    img: "img/spiderman.png"
-  },
-  {
-    name: "The Incredible Hulk",
-    number: "800-HLK-SMSH",
-    group: "Marvel",
-    img: "img/hulk.jpg"
-  },
-  {
-    name: "Wonder Woman",
-    number: "800-GRL-WNDR",
-    group: "DC",
-    img: "img/wonder_woman.jpg"
-  },
-  {
-    name: "Storm",
-    number: "800-DRK-CLDS",
-    group: "Marvel",
-    img: "img/storm.gif"
-  },
-  {
-    name: "Iron Man",
-    number: "800-STA-RKME",
-    group: "Marvel",
-    img: "img/ironman.png"
-  },
-  {
-    name: "Black Panther",
-    number: "800-TCH-ALLA",
-    group: "Marvel",
-    img: "img/black_panther.gif"
-  },
-  {
-    name: "Princess Peach",
-    number: "800-NO-DAMSL",
-    group: "Independent",
-    img: "img/princess_peach.jpg"
-  },
-  {
-    name: "Batman",
-    number: "800-DRK-NITE",
-    group: "DC",
-    img: "img/batman.jpg"
-  },
-  {
-    name: "Supergirl",
-    number: "800-KYR-PTON",
-    group: "DC",
-    img: "img/supergirl.jpg"
+"use strict";
+
+(function(){
+  angular
+  .module("phonebook", [
+    "ui.router",
+    "heroes"
+  ])
+  .config([
+    "$stateProvider",
+    RouterFunction
+  ]);
+
+  function RouterFunction($stateProvider){
+    $stateProvider
+    .state("heroIndex", {
+      url: "/heroes",
+      templateUrl: "js/heroes/index.html",
+      controller: "heroIndexController",
+      controllerAs: "heroIndexViewModel"
+    })
+    .state("heroNew", {
+      url: "/heroes/new",
+      templateUrl: "js/heroes/new.html",
+      controller: "heroNewController",
+      controllerAs: "heroNewViewModel"
+    })
+    .state("heroEdit", {
+      url: "/heroes/:id/edit",
+      templateUrl: "js/heroes/edit.html",
+      controller: "heroEditController",
+      controllerAs: "heroEditViewModel"
+    })
+    .state("heroShow", {
+      url: "/heroes/:id",
+      templateUrl: "js/heroes/show.html",
+      controller: "heroShowController",
+      controllerAs: "heroShowViewModel"
+    });
   }
-]
+}());
