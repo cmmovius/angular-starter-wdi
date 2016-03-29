@@ -22,6 +22,7 @@
 <body data-ng-app="phonebook">
   <main data-ng-controller="hero_controller as vm">
     <h1>Superheroes</h1>
+    <input type="text" class="form-control" placeholder="Search for Hero" data-ng-model="vm.filter_on"/>
     <div class="picture">
       Picture:
     </div>
@@ -30,7 +31,7 @@
     </div>
     <table class="table">
       <thead>
-        <tr data-ng-repeat="hero in vm.data">
+        <tr data-ng-repeat="hero in vm.data | filter: vm.filter_on">
           <th>Name: {{hero.name}}</th>
           <th>Number: {{hero.number}}</th>
           <th></th>
